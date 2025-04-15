@@ -1,2 +1,2 @@
-# WebApp
-We make very useful app.
+# WebApp制作
+SvelteとTailwindCSSを使った勉強に使えるWebアプリの制作
