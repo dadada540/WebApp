@@ -22,9 +22,19 @@
         todotitle = '';
     }
 
+    function del(){
+         Todos.splice(0,1)
+         alert('削除しました');
+            return;
+    }
 </script>
+
+<title>WebApp</title>
+
 <main>
+
     <Header/>
+    
     <div class="p-5">
         <div class="rounded-2xl border p-4">
             <div class="flex justify-center">
@@ -40,8 +50,9 @@
             {:else}
                  <ul class="px-50">
                       {#each Todos as todo}
-                          <li class="p-3 font-bold text-xl bg-gray-200 rounded-md my-2 pl-7">{todo}</li>
-                          <button class="bg-gray-200 ">削除</button>
+                          <li class="p-3 font-bold text-xl bg-gray-200 rounded-md my-2 pl-7"><input type="checkbox">{todo}
+                            <button class="bg-gray-400 border rounded-md p-1.5 w-15a mr-4 text-white transition hover:bg-red-800" on:click={del}>削除</button>
+                          </li>
                       {/each}
                   </ul>
             {/if}
