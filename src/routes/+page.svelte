@@ -38,12 +38,12 @@
             {#if Todos.length === 0}
             <div class="flex justify-center font-bold">Todoを作成してください</div>
             {:else}
-                 <ul class="px-50">
-                      {#each Todos as todo}
-                          <li class="p-3 font-bold text-xl bg-gray-200 rounded-md my-2 pl-7">{todo}</li>
-                          <button class="bg-gray-200 ">削除</button>
-                      {/each}
-                  </ul>
+                <ul class="px-50">
+                    {#each Todos as todo}
+                        <li class="p-3 font-bold text-xl bg-gray-200 rounded-md my-2 pl-7">{todo}</li>
+                        <button class="bg-gray-200 ">削除</button>
+                    {/each}
+                </ul>
             {/if}
         </div>
     </div>
