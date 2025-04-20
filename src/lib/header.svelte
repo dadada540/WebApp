@@ -3,7 +3,7 @@
     import { Home } from 'svelte-heros-v2';
     import { Calendar } from 'svelte-heros-v2';
     import {  CheckCircle } from 'svelte-heros-v2';
-    import { EllipsisHorizontalCircle } from 'svelte-heros-v2';
+    import { Bars3BottomRight } from 'svelte-heros-v2';
 
     let open;
 </script>
@@ -17,7 +17,7 @@
                     <ul class="">
                         <li class="flex justify-end-safe gap-20 w-full">
                             <div>
-                                <a href=""><Home size="35" /></a>
+                                <a href=""><Home size="35"  /></a>
                             </div>
                             
                             <div>
@@ -27,7 +27,7 @@
                                 <a href=""><CheckCircle size="35" /></a>
                             </div>
                             <div>
-                                <a href=""><EllipsisHorizontalCircle size="35" /></a>
+                                <a href=""><Bars3BottomRight size="35" /></a>
                             </div>
                         </li>
                     </ul>
