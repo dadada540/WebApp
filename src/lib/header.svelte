@@ -10,32 +10,28 @@
 
 <main>
     <div class="p-4">
-        <header class=" bg-gray-200 p-3 backdrop-blur-2xl rounded-2xl">
-            <div class="flex flex-row gap-50">
-                <h1 class="text-3xl font-light text-gray-900"> 使える機能はTodoリストだけです。</h1>
+        <header class=" bg-gray-200 p-3 rounded-2xl backdrop-blur-sm shadow-md">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl text-gray-900"> 使える機能はTodoリストだけです。</h1>
                 <nav>
-                    <ul>
-                        <li class="flex gap-20 pl-140">
+                    <ul class="">
+                        <li class="flex justify-end-safe gap-20 w-full">
                             <div>
-                                <a href=""><Home /></a>
+                                <a href=""><Home size="35" /></a>
                             </div>
                             
                             <div>
-                                <a href=""> <Calendar /></a>
+                                <a href=""> <Calendar size="35" /></a>
                             </div>
                             <div>
-                                <a href=""><CheckCircle /></a>
+                                <a href=""><CheckCircle size="35" /></a>
                             </div>
                             <div>
-                                <a href=""><EllipsisHorizontalCircle /></a>
+                                <a href=""><EllipsisHorizontalCircle size="35" /></a>
                             </div>
                         </li>
                     </ul>
                 </nav>
-            </div>
-            <div class="fixed right-2 -mt-11">
-                <Hamburger />
-                
             </div>
         </header>
     </div>

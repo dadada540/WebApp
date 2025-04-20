@@ -25,7 +25,6 @@
     function del(index: number){
          Todos.splice(index,1)
          Todos = [...Todos];
-         alert('削除しました');
     }
 
     function cheak(index: number){
@@ -35,22 +34,22 @@
 
 <title>使える機能はTodoリストだけです。</title>
 
-<main>
+<main class="bg-linear-to-t bg-indigo-500 to-gray-300 h-screen">
 
     <Header/>
 
-    <div class="p-5">
+    <div class="p-5 h-screen">
         <div class="rounded-2xl border p-4">
             <div class="flex justify-center">
                 <div>
                     <label>
                         <input class="bg-gray-200 rounded-md transition hover:bg-gray-300" bind:value={todotitle} />
                     </label>
-                    <button class="p-1.5 bg-gray-200 rounded-md transition hover:bg-gray-400" on:click={add}>作成</button>
+                    <button class="border p-1.5 bg-gray-200 rounded-md transition hover:bg-blue-300" on:click={add}>作成</button>
                 </div>
             </div>
             {#if Todos.length === 0}
-            <div class="flex justify-center font-bold">Todoを作成してください</div>
+            <div class="flex justify-center font-bold">Todoがまだありません</div>
             {:else}
                  <ul class="px-50">
                       {#each Todos as todo, index}
