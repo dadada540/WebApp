@@ -38,8 +38,8 @@
 
     <Header/>
 
-    <div class="p-5 h-screen">
-        <div class="rounded-2xl border p-4">
+    <div class="p-10">
+        <div class="rounded-2xl bg-gray-300 shadow-md p-6">
             <div class="flex justify-center">
                 <div>
                     <label>
@@ -49,13 +49,13 @@
                 </div>
             </div>
             {#if Todos.length === 0}
-            <div class="flex justify-center font-bold">Todoがまだありません</div>
+            <div class="flex justify-center font-bold">Todoがまだ1つもありません</div>
             {:else}
                  <ul class="px-50">
                       {#each Todos as todo, index}
                           <li class="p-3 font-bold text-xl bg-gray-200 rounded-md my-2 pl-7"><input type="checkbox" bind:checked={todo.completed} on:click={() => cheak(index)} class="mr-2" />
-                            {todo.title}
                             <button class="bg-gray-400 border rounded-md p-1.5 w-15a mr-4 text-white transition hover:bg-red-800" on:click={() =>  del(index)}>削除</button>
+                            {todo.title}
                           </li>
                       {/each}
                   </ul>
