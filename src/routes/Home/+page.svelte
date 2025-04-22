@@ -17,7 +17,6 @@
             alert(`不適切なワードは追加できません`)
             return;
         }
-        alert(todotitle +`を追加しました`);
         Todos = [...Todos, { title: todotitle, completed: false}];
         todotitle = '';
     }

@@ -17,11 +17,11 @@
                     <ul class="">
                         <li class="flex justify-end-safe gap-20 w-full">
                             <div>
-                                <a href=""><Home size="35"  /></a>
+                                <a href="Home"><Home size="35"  /></a>
                             </div>
                             
                             <div>
-                                <a href="calender.svelte"> <Calendar size="35" /></a>
+                                <a href="Calender"> <Calendar size="35" /></a>
                             </div>
                             <div>
                                 <a href=""><CheckCircle size="35" /></a>
