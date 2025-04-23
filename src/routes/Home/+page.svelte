@@ -5,7 +5,7 @@
     let open;
 
     let todotitle = '';
-    let Todos: { title: string; completed: boolean}[] =[]; 
+    let Todos: { title: string; completed: boolean; due?: string }[] = [];
 
     function add(){
         
@@ -17,13 +17,18 @@
             alert(`不適切なワードは追加できません`)
             return;
         }
-        Todos = [...Todos, { title: todotitle, completed: false}];
+        Todos = [...Todos, {
+        title: todotitle,
+        completed: false,
+        due: '2025-04-30'
+        }];
+
         todotitle = '';
     }
 
     function del(index: number){
-         Todos.splice(index,1)
-         Todos = [...Todos];
+        Todos.splice(index,1)
+        Todos = [...Todos];
     }
 
     function cheak(index: number){
@@ -50,14 +55,19 @@
             {#if Todos.length === 0}
             <div class="flex justify-center font-bold">Todoがまだ1つもありません</div>
             {:else}
-                 <ul class="px-50">
-                      {#each Todos as todo, index}
-                          <li class="p-3 font-bold text-xl bg-gray-200 rounded-md my-2 pl-7"><input type="checkbox" bind:checked={todo.completed} on:click={() => cheak(index)} class="mr-2" />
-                            <button class="bg-gray-400 border rounded-md p-1.5 w-15a mr-4 text-white transition hover:bg-red-800" on:click={() =>  del(index)}>削除</button>
-                            {todo.title}
-                          </li>
-                      {/each}
-                  </ul>
+                <ul class="px-50">
+                    {#each Todos as todo, index}
+                                <li class="p-3 font-bold text-xl bg-gray-200 rounded-md my-2 pl-7 flex felx-row  items-center"><input type="checkbox" bind:checked={todo.completed} on:click={() => cheak(index)} class="mr-2" />
+                                        <button class="bg-gray-400 border rounded-md p-1.5 w-15a mr-4 text-white transition hover:bg-red-800" on:click={() =>  del(index)}>削除</button>
+                                        {todo.title}
+                                        <div class="ml-auto">
+                                            {#if todo.due}
+                                                <p class="text-right font-normal text-2xl">{todo.due} まで</p>
+                                            {/if}
+                                        </div>
+                                </li>
+                    {/each}
+                </ul>
             {/if}
         </div>
     </div>
