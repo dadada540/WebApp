@@ -1,5 +1,4 @@
 <script>
-    import { svelte } from "@sveltejs/vite-plugin-svelte";
     import Header from '$lib/header.svelte';
 </script>
 
