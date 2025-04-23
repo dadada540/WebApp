@@ -19,7 +19,6 @@
                             <div>
                                 <a href="Home"><Home size="35"  /></a>
                             </div>
-                            
                             <div>
                                 <a href="Calender"> <Calendar size="35" /></a>
                             </div>
