@@ -1,10 +1,6 @@
 <script lang="ts">
     import { Hamburger } from 'svelte-hamburgers';
     import Header from '$lib/header.svelte';
-    import { Checkbox } from '@smui/checkbox';
-    import { FormField } from '@smui/form-field';
-
-    let checked = $state(false);
 
     let selectedTodoIndex: number | null = null; // どのTodoが選ばれたか
     let selectedDate: string = ''; // 選択された日付
@@ -95,13 +91,7 @@
             {:else}
                 <ul class="px-50">
                     {#each Todos as todo, index}
-                                <li class="p-3 font-bold text-xl bg-gray-200 rounded-md my-2 pl-7 flex felx-row  items-center">
-                                    <FormField>
-                                        <Checkbox bind:checked={todo.completed} on:click={() => cheak(index)} />
-                                        <label for="todo-checkbox" class="ml-2">Remember me.</label>
-                                    </FormField>
-
-                                    <pre class="status">Checked: {checked}</pre>
+                                <li class="p-3 font-bold text-xl bg-gray-200 rounded-md my-2 pl-7 flex felx-row  items-center"><input type="checkbox" bind:checked={todo.completed} on:click={() => cheak(index)} class="mr-2" />
                                         <button class="bg-gray-500 border rounded-md p-1.5 w-15a mr-4 text-white transition hover:bg-red-800" on:click={() =>  del(index)}>削除</button>
                                         <button class="bg-gray-500 border rounded-md p-1.5 w-15a mr-4 text-white transition hover:bg-red-800" on:click={() => openDatePicker(index)}>期限を設定</button>
                                         {todo.title}
