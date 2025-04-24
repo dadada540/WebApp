@@ -4,9 +4,8 @@
 
 <main>
 
-    <Header/>
-
     <div class="bg-gray-500 h-screen">
-        
+        <Header/>
     </div>
+    
 </main>
