@@ -23,6 +23,13 @@
             days.unshift({day: lastdaybeforemonth - i , isnowmonth: false});
         }
 
+        const month42 = 42 - days.length;
+        for (let i = 1; i <= month42; i++){
+            days.push({day: i, isnowmonth: false});
+        }
+
+        return days;
+
     }
 
 </script>
