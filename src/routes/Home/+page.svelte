@@ -91,7 +91,7 @@
             {:else}
                 <ul class="px-50">
                     {#each Todos as todo, index}
-                                <li class="p-3 font-bold text-xl bg-gray-200 rounded-md my-2 pl-7 flex felx-row  items-center"><input type="checkbox" bind:checked={todo.completed} on:click={() => cheak(index)} class="mr-2" />
+                                <li class="p-3 font-bold text-xl border-1 border-solid rounded-md my-2 pl-7 flex felx-row  items-center shadow-md"><input type="checkbox" bind:checked={todo.completed} on:click={() => cheak(index)} class="mr-2" />
                                         <button class="bg-gray-500 border rounded-md p-1.5 w-15a mr-4 text-white transition hover:bg-red-800" on:click={() =>  del(index)}>削除</button>
                                         <button class="bg-gray-500 border rounded-md p-1.5 w-15a mr-4 text-white transition hover:bg-red-800" on:click={() => openDatePicker(index)}>期限を設定</button>
                                         {todo.title}
