@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
     import Header from '$lib/header.svelte';
+
 
     let today = new Date();
     
@@ -14,10 +15,10 @@
     function getdaysArray(){
         const days = [];
 
-            const firstday = new Date(year,month,1);
-            const lastday = new Date(year,month + 1,0);
-            const daysInMonth = lastday.getDate();
-            const firstYoubi = firstday.getDay();
+            const firstday = new Date(year,month,1);//今月の初日
+            const lastday = new Date(year,month + 1,0);//今月の最終日
+            const daysInMonth = lastday.getDate();//今月の日数
+            const firstYoubi = firstday.getDay();//今月の初日の曜日
 
         const daysbeforelastday = new Date(year, month, 1).getDay();;//前月の末日から今月初めの間を埋める（日にち）
         const lastdaybeforemonth = new Date(year,month,0).getDate();
@@ -68,6 +69,10 @@
     
     //本来ならここに日にち比較の関数を入れるが、めんどいのでスルー
 
+    function datescedule(index : number){
+        console.log("選ばれたのは"+ index + "でした");
+    }
+
 </script>
 
 <main>
@@ -80,15 +85,13 @@
          <div class="bg-gray-200 rounded-4xl shadow-2xl">
             <div class="flex item-center justify-between p-4 bg-gray-100 rounded-t-4xl">
                 <button class="px-3 py-1 rounded-md hover:bg-gray-200" on:click={movebeforemonth} aria-label="前月に移動">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M15.707 15.707a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414l5-5a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
-                    </svg>
+                    <svg class="h-8 w-8 text-gray-500"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> 
+                         <path stroke="none" d="M0 0h24v24H0z"/>  <polyline points="15 6 9 12 15 18" /></svg>
                 </button>
                 <h2 class="text-lg font-semibold">{year}年{month + 1}月</h2>
                 <button class="px-3 py-1 rounded-md hover:bg-gray-200" on:click={movenextmonth} aria-label="次月に移動">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 011.414 0L10 11.414l4.293 4.293a1 1 0 011.414-1.414l-5-5a1 1 0 010-1.414l-5-5a1 1 0 111.414 1.414L8.586 10l-4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
-                      </svg>
+                    <svg class="h-8 w-8 text-gray-500"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> 
+                         <path stroke="none" d="M0 0h24v24H0z"/>  <polyline points="9 6 15 12 9 18" /></svg>
                 </button>
             </div>
             <table class="w-full">
@@ -103,7 +106,8 @@
                 {#each getdaysArray().map((day, index) => ({ ...day, index })) as week }
                     <tr>
                         {#each getdaysArray().slice(week.index * 7,(week.index + 1) * 7) as date}
-                        <td class="p-10 text-center text-sm {date.isnowmonth ? 'text-gray-900' : 'text-gray-400'} {date.isToday ? 'font-semibold text-blue-600' : ''}">
+                        <td class="text-center rounded-4xl {date.isnowmonth ? 'text-gray-900' : 'text-gray-400'} {date.isToday ? 'font-bold text-2xl p-9' : 'text-sm p-10'}
+                         hover:bg-slate-300 transition" on:click={() => datescedule(date.day)}>
                             {date.day}
                         </td>
                         {/each}
