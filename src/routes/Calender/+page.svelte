@@ -3,6 +3,7 @@
 
 
     let today = new Date();
+    let schedule;
     
     $: year = today.getFullYear();
     $: month = today.getMonth();
