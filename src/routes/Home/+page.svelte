@@ -67,7 +67,7 @@
 </script>
 
 <svelte:head>
-    <title>なこん</title>
+    <title>NaKon</title>
 </svelte:head>
 
 

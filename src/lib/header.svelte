@@ -12,7 +12,7 @@
     <div class="p-4">
         <header class=" bg-gray-200 p-3 rounded-2xl backdrop-blur-sm shadow-lg">
             <div class="flex justify-between items-center">
-                <h1 class="text-3xl text-gray-900"> まともに使える機能はTodoリストだけです。</h1>
+                <div class="text-3xl text-gray-900"></div>
                 <nav>
                     <ul class="">
                         <li class="flex justify-end-safe gap-20 w-full">
