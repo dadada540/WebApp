@@ -1,8 +1,8 @@
 <script lang="ts">
     import Header from '$lib/header.svelte';
 
-
     let today = new Date();
+    let nowdata = 0;
     let schedule;
     
     $: year = today.getFullYear();
@@ -40,7 +40,7 @@
             });
         }
 
-        // Mark days in the current month and check if they are today
+        // Mark days in the current month and checkif they are today
         for (let i = daysbeforelastday; i < daysbeforelastday + daysInMonth; i++) {
             const currentDay = i - daysbeforelastday + 1;
             days[i] = {
@@ -71,7 +71,11 @@
     //本来ならここに日にち比較の関数を入れるが、めんどいのでスルー
 
     function datescedule(index : number){
-        console.log("選ばれたのは"+ index + "でした");
+
+        console.log("選ばれたのは"+ (month + 1 ) + "月" + index + "でした");//選ばれた日にちをコンソールに出力
+
+
+
     }
 
 </script>
