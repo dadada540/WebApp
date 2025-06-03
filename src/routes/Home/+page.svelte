@@ -1,15 +1,41 @@
+
 <script lang="ts">
     import { Hamburger } from 'svelte-hamburgers';
     import Header from '$lib/header.svelte';
+    import { onMount } from 'svelte'; 
+    import Cookies from 'js-cookie';
+
 
     let selectedTodoIndex: number | null = null; // どのTodoが選ばれたか
     let selectedDate: string = ''; // 選択された日付
     let open;
-
     let todotitle = '';
     let Todos: { title: string; completed: boolean; due?: string }[] = [];
-
     let clendars = '';
+
+    onMount(() => {
+    const savedTodos = Cookies.get('todoList');
+    if (savedTodos) {
+      try {
+        Todos = JSON.parse(savedTodos);
+      } catch (e) {
+        console.error('ToDoの読み込みに失敗:', e);
+      }
+    }
+
+    const savedDate = Cookies.get('deadline');
+    if (savedDate) {
+        selectedDate = savedDate;
+    }
+    });
+
+  // Todos が変化したら保存
+    $: Cookies.set('todoList', JSON.stringify(Todos), { expires: 7 });
+
+  // selectedDate も保存（期限用）
+    $: if (clendars) {
+        Cookies.set('deadline', clendars, { expires: 7 });
+    }
 
     function calendars(){
         if (clendars === '') {
