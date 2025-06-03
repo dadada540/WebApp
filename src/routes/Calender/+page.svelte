@@ -1,15 +1,14 @@
 <script lang="ts">
     import Header from '$lib/header.svelte';
-
+    import { Button, Modal, P } from "flowbite-svelte";
+    
+    $: defaultModal = false;
     let today = new Date();
-    let nowdata = 0;
-    let schedule;
     
     $: year = today.getFullYear();
     $: month = today.getMonth();
     $: day = today.getDate();
 
-    $: daysArray = getdaysArray();
 
     const Youbi = ['日', '月', '火', '水', '木', '金', '土'];
 
@@ -19,7 +18,6 @@
             const firstday = new Date(year,month,1);//今月の初日
             const lastday = new Date(year,month + 1,0);//今月の最終日
             const daysInMonth = lastday.getDate();//今月の日数
-            const firstYoubi = firstday.getDay();//今月の初日の曜日
 
         const daysbeforelastday = new Date(year, month, 1).getDay();;//前月の末日から今月初めの間を埋める（日にち）
         const lastdaybeforemonth = new Date(year,month,0).getDate();
@@ -72,10 +70,11 @@
 
     function datescedule(index : number){
 
-        console.log("選ばれたのは"+ (month + 1 ) + "月" + index + "でした");//選ばれた日にちをコンソールに出力
+        console.log((month + 1 ) + "月" + index + "が選択されています");//選ばれた日にちをコンソールに出力
 
-
-
+        prompt('名前を入力してください');
+        alert()
+        
     }
 
 </script>
