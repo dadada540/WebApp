@@ -6,28 +6,35 @@
     import Cookies from 'js-cookie';
 
 
+
     let selectedTodoIndex: number | null = null; // どのTodoが選ばれたか
     let selectedDate: string = ''; // 選択された日付
     let open;
     let todotitle = '';
     let Todos: { title: string; completed: boolean; due?: string }[] = [];
     let clendars = '';
+    let isInitialized: boolean = false;
 
     onMount(() => {
-    const savedTodos = Cookies.get('todoList');
-    if (savedTodos) {
-      try {
-        Todos = JSON.parse(savedTodos);
-      } catch (e) {
-        console.error('ToDoの読み込みに失敗:', e);
-      }
-    }
+    if (typeof window !== 'undefined') {
+        try {
+        const savedTodos = localStorage.getItem('todos');
+        if (savedTodos) {
+            Todos = JSON.parse(savedTodos);
+        }
+        } catch (e) {
+        console.error('Failed to load todos from localStorage:', e);
+        } finally {
+            isInitialized = true;
+        }
+        }
+    });
+
 
     const savedDate = Cookies.get('deadline');
     if (savedDate) {
         selectedDate = savedDate;
     }
-    });
 
   // Todos が変化したら保存
     $: Cookies.set('todoList', JSON.stringify(Todos), { expires: 7 });
@@ -80,6 +87,12 @@
         }];
 
         todotitle = '';
+
+        try {
+        localStorage.setItem('todos', JSON.stringify(Todos));
+    } catch (e) {
+        console.error('ローカルストレージへの保存に失敗しました', e);
+        }
     }
 
     function del(index: number){
