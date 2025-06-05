@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { Hamburger } from 'svelte-hamburgers';
     import { Home } from 'svelte-heros-v2';
     import { Calendar } from 'svelte-heros-v2';
     import {  CheckCircle } from 'svelte-heros-v2';

@@ -53,6 +53,7 @@
         console.log('選択された日付:', clendars);
 
         clendars = '';
+
     }
 
       // openDatePicker 関数を定義
@@ -69,6 +70,11 @@
         selectedTodoIndex = null; // リセット
         selectedDate = ''; // リセット
     }
+    try {
+        localStorage.setItem('todos', JSON.stringify(Todos));
+    } catch (e) {
+        console.error('ローカルストレージへの保存に失敗しました', e);
+        }
     }
 
 
