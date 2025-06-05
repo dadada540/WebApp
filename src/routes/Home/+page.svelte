@@ -116,7 +116,7 @@
 
 
 
-<main class="bg-linear-to-t h-screen">
+<main class="bg-linear-to-t from-gray-400 to-gray-300 h-screen">
 
     <Header/>
 

@@ -30,7 +30,7 @@
                                 <input type="checkbox" class="hidden" />
                                 <Bars3BottomRight class="w-9 h-9 text-gray-800" />
                             </label>
-                            <div class="bg-gray-200 relative h-200 w-60 left-520 rounded-l-3xl hidden transition-all not-peer-has-checked:opacity-0 peer-has-checked:block">
+                            <div class="bg-gray-200 backdrop-blur-none relative h-200 w-60 left-520 rounded-l-3xl hidden transition-all not-peer-has-checked:opacity-0 peer-has-checked:block">
                                 <button class="flex justify-end ">
                                     <a href=""><XMark size="35" /></a>
                                 </button>
