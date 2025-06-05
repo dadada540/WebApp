@@ -1,6 +1,5 @@
 
 <script lang="ts">
-    import { Hamburger } from 'svelte-hamburgers';
     import Header from '$lib/header.svelte';
     import { onMount } from 'svelte'; 
     import Cookies from 'js-cookie';
