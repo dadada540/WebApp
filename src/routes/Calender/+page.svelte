@@ -9,6 +9,8 @@
     $: month = today.getMonth();
     $: day = today.getDate();
 
+    let scheduledDays: string[] = [];
+
 
     const Youbi = ['日', '月', '火', '水', '木', '金', '土'];
 
@@ -63,17 +65,23 @@
     }
 
     function movenextmonth(){
+
         today = new Date(year, month + 1, 1);
+
     }
     
     //本来ならここに日にち比較の関数を入れるが、めんどいのでスルー
 
-    function datescedule(index : number){
+    function datescedule(selectedDay : number){
 
-        console.log((month + 1 ) + "月" + index + "が選択されています");//選ばれた日にちをコンソールに出力
-
-        prompt('名前を入力してください');
-        alert()
+        const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(selectedDay).padStart(2, '0')}`;
+        const name = prompt('名前を入力してください');
+        if (name) {
+            if (!scheduledDays.includes(dateStr)) {
+                scheduledDays = [...scheduledDays, dateStr];
+            }
+        }
+        console.log((month + 1 ) + "月" + selectedDay + "が選択されています");
         
     }
 
@@ -111,9 +119,14 @@
                     <tr>
                         {#each getdaysArray().slice(week.index * 7,(week.index + 1) * 7) as date}
                         <td class="text-center rounded-4xl {date.isnowmonth ? 'text-gray-900' : 'text-gray-400'} {date.isToday ? 'font-bold text-2xl p-9' : 'text-sm p-10'}
-                         hover:bg-slate-300 transition" on:click={() => datescedule(date.day)}>
-                            {date.day}
-                        </td>
+ hover:bg-slate-300 transition" on:click={() => datescedule(date.day)}>
+    {date.day}
+    {#if scheduledDays.includes(`${year}-${String(month + 1).padStart(2, '0')}-${String(date.day).padStart(2, '0')}`)}
+        <div class="flex justify-center mt-1">
+            <span class="inline-block w-2 h-2 bg-blue-500 rounded-full"></span>
+        </div>
+    {/if}
+</td>
                         {/each}
                     </tr>
                 {/each}
