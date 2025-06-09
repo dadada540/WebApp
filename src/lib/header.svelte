@@ -6,8 +6,8 @@
     import { XMark } from 'svelte-heros-v2';
     import Hamburger from '$lib/hamburgerMenu.svelte';
 
-    let isOpen = false;
-    let open;
+    let Open = false;
+    
 </script>
 
 <main>
@@ -27,8 +27,8 @@
                             <div>
                                 <a href=""><CheckCircle size="35" /></a>
                             </div>
-                            <div class="cursor-pointer peer">
-                                <a href=""><Hamburger /></a>
+                            <div class="">
+                                <Hamburger />
                             </div>
                             
                         </li>
@@ -37,6 +37,4 @@
             </div>
         </header>
     </div>
-
-    <Hamburger />
 </main>
