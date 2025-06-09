@@ -4,6 +4,7 @@
 
 	
 	let { children } = $props();
+	let isOpen = false;
 
 	onMount(() => {
 		if (typeof window === 'undefined') return;
@@ -12,6 +13,8 @@
 			window.location.href = '/Home';
 		}
 	})
+
+	
 </script>
 
 {@render children()}
