@@ -30,6 +30,8 @@
 	},
 	"dependencies": {
 		"@heroicons/react": "^2.2.0",
+		"@lottiefiles/dotlottie-svelte": "^0.6.1",
+		"@lottiefiles/lottie-player": "^2.0.12",
 		"@smui/form-field": "^8.0.0-beta.3",
 		"flowbite": "^3.1.2",
 		"flowbite-svelte": "^1.5.3",

@@ -3,8 +3,7 @@
     import Header from '$lib/header.svelte';
     import { onMount } from 'svelte'; 
     import Cookies from 'js-cookie';
-
-
+    import { DotLottieSvelte } from '@lottiefiles/dotlottie-svelte';
 
     let selectedTodoIndex: number | null = null; // どのTodoが選ばれたか
     let selectedDate: string = ''; // 選択された日付
@@ -135,11 +134,17 @@
             {:else}
                 <ul class="px-50">
                     {#each Todos as todo, index}
-                                <li class="p-3 font-bold text-xl border-1 border-solid rounded-md my-2 pl-7 flex felx-row  items-center shadow-md"><input type="checkbox" bind:checked={todo.completed} on:click={() => cheak(index)} class="mr-2" />
+                                <li class="p-3 font-bold text-xl border-1 border-solid rounded-md my-2 pl-7 flex felx-row  items-center shadow-md">
+                                    <lottie-player
+                                        src="https://lottie.host/embed/24720dc2-313d-4adf-97dd-6789680a1630/XZe9NwZTRB.lottie"
+                                        autoplay
+                                        loop
+                                        style="width: 24px; height: 24px; border: 1px solid red; "
+                                        on:click={() => cheak(index)}
+                                    ></lottie-player>
                                         <button class="bg-gray-500 border rounded-md p-1.5 w-15a mr-4 text-white transition hover:bg-red-800" on:click={() =>  del(index)}>削除</button>
                                         <button class="bg-gray-500 border rounded-md p-1.5 w-15a mr-4 text-white transition hover:bg-red-800" on:click={() => openDatePicker(index)}>期限を設定</button>
                                         {todo.title}
-
                                         {#if selectedTodoIndex === index}
                                             <input
                                                 type="date"
