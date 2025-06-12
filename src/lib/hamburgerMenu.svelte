@@ -6,7 +6,7 @@
 </script>
 
 <button class="relative z-20" on:click={() => Open = !Open}>
-    <Bars3BottomRight class="w-9 h-9 text-gray-800" />
+    <Bars3BottomRight class="w-20 h-9 text-gray-800" />
 </button>
 
 
