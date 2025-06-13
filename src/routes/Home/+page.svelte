@@ -125,7 +125,7 @@
                     <label>
                         <input class="bg-gray-200 rounded-md transition hover:bg-gray-300 md:w-60 md:h-13 2xl:w-70 2xl:h-13" bind:value={todotitle} />
                     </label>
-                    <button class="border p-1.5 bg-gray-200 rounded-md transition hover:bg-blue-300 md:text-2xl 2xl:text-3xl" on:click={add}>作成</button>
+                    <button class="border p-1.5 bg-gray-200 rounded-md transition hover:bg-blue-300 md:text-xl 2xl:text-xl" on:click={add}>作成</button>
                 </div>
             </div>
             {#if Todos.length === 0}
