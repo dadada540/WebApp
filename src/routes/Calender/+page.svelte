@@ -11,6 +11,10 @@
 
     let scheduledDays: string[] = [];
 
+    let selectedDays: string[] = [];
+    let formattedDate: string[] = [];
+    let DaydataAbout: string[] = [];
+
 
     const Youbi = ['日', '月', '火', '水', '木', '金', '土'];
 
@@ -74,22 +78,33 @@
 
     function datescedule(selectedDay : number){
 
-        const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(selectedDay).padStart(2, '0')}`;
-        const name = prompt('名前を入力してください');
-        if (name) {
-            if (!scheduledDays.includes(dateStr)) {
-                scheduledDays = [...scheduledDays, dateStr];
-            }
+        if( selectedDays.includes(`${year}-${String(month + 1).padStart(2, '0')}-${String(selectedDay).padStart(2, '0')}`) ){
+            alert("この日の予定は、「" + DaydataAbout[selectedDays.indexOf(`${year}-${String(month + 1).padStart(2, '0')}-${String(selectedDay).padStart(2, '0')}`)] + "」です。");
         }
-        console.log((month + 1 ) + "月" + selectedDay + "が選択されています");
-        
+        else {
+        let dateData = window.prompt("予定を入力してください");
+        if (!dateData){
+            dateData = "予定（詳細なし）"
+        }
+        DaydataAbout.push(dateData);
+
+        const formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(selectedDay).padStart(2, '0')}`;
+        if (!selectedDays.includes(formattedDate)) {
+            selectedDays.push(formattedDate); // 選択された日にちを追加
+        }
+        console.log((month + 1 ) + "月" + selectedDay + "が選択されています。内容は、" + dateData + "です。");
+        }
+
+        selectedDays = [...selectedDays]
+        formattedDate = [...formattedDate];
+
     }
 
 </script>
 
 <main>
 
-    <div class="bg-gray-300 h-screen">
+    <div class="bg-gray-300 h-screen bg-cover">
 
         <Header/>
         
@@ -118,15 +133,15 @@
                 {#each getdaysArray().map((day, index) => ({ ...day, index })) as week }
                     <tr>
                         {#each getdaysArray().slice(week.index * 7,(week.index + 1) * 7) as date}
-                        <td class="text-center rounded-4xl {date.isnowmonth ? 'text-gray-900' : 'text-gray-400'} {date.isToday ? 'font-bold text-2xl p-9' : 'text-sm p-10'}
- hover:bg-slate-300 transition" on:click={() => datescedule(date.day)}>
-    {date.day}
-    {#if scheduledDays.includes(`${year}-${String(month + 1).padStart(2, '0')}-${String(date.day).padStart(2, '0')}`)}
-        <div class="flex justify-center mt-1">
-            <span class="inline-block w-2 h-2 bg-blue-500 rounded-full"></span>
-        </div>
-    {/if}
-</td>
+                        <td class="text-center border {date.isnowmonth ? 'text-gray-900' : 'text-gray-400'} {date.isToday ? 'font-bold text-2xl p-9' : 'text-sm p-10'} 
+                        hover:bg-slate-300 transition {selectedDays.includes(`${year}-${String(month + 1).padStart(2, '0')}-${String(date.day).padStart(2, '0')}`) ? 'bg-blue-200' : ''}"  on:click={() => datescedule(date.day)}>
+                        {date.day}
+                        {#if scheduledDays.includes(`${year}-${String(month + 1).padStart(2, '0')}-${String(date.day).padStart(2, '0')}`)}
+                            <div class="flex justify-center mt-1">
+                                <span class="inline-block w-2 h-2 bg-blue-500 rounded-full"></span>
+                            </div>
+                        {/if}
+                    </td>
                         {/each}
                     </tr>
                 {/each}
