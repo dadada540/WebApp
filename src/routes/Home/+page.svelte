@@ -123,9 +123,9 @@
             <div class="flex  justify-center">
                 <div class="flex justify-center gap-3">
                     <label>
-                        <input class="bg-gray-200 rounded-md transition hover:bg-gray-300 md:w-60 md:h-13 2xl:w-70 2xl:h-13" bind:value={todotitle} />
+                        <input id="box" class="bg-gray-200 rounded-md border border-stone-600  transition-[border] duration-300 ease-in-out hover:bg-gray-300 hover:border-blue-500 focus:border-blue-500 md:w-60 md:h-12 2xl:w-72 2xl:h-12" placeholder="入力してください" bind:value={todotitle} />
                     </label>
-                    <button class="border p-1.5 bg-gray-200 rounded-md transition hover:bg-blue-300 md:text-xl 2xl:text-xl" on:click={add}>作成</button>
+                    <button id="boxSakusei" class="border p-1.5 bg-gray-200 rounded-md transition hover:bg-blue-300 md:text-xl 2xl:text-xl" on:click={add}>作成</button>
                 </div>
             </div>
             {#if Todos.length === 0}
@@ -133,7 +133,7 @@
             {:else}
                 <ul class="flex flex-col justify-center items-center">
                     {#each Todos as todo, index}
-                                <li class="p-3 font-bold text-xl border-1 border-solid rounded-md my-2 flex felx-row justify-center items-center shadow-md md:w-170 lg:w-170  2xl:h-30 2xl:w-300">
+                                <li id="todoBox" class="p-3 font-bold text-xl rounded-md my-2 flex felx-row justify-center bg-gray-300 items-center shadow-md md:w-170 lg:w-170  2xl:h-30 2xl:w-300">
                                         <input type="checkbox" class="mr-4" checked={todo.completed} on:change={() => cheak(index)} />
                                         <button class="bg-gray-500 border rounded-md p-1.5 w-15a mr-4 text-white transition hover:bg-red-800 2xl:h-17 2xl:w-19" on:click={() =>  del(index)}>削除</button>
                                         <button class="bg-gray-500 border rounded-md p-1.5 w-15a mr-4 text-white transition hover:bg-red-800 2xl:h-17" on:click={() => openDatePicker(index)}>期限を設定</button>
@@ -160,3 +160,20 @@
         </div>
     </div>
 </main>
+
+<style>
+    #box{
+        box-shadow: 2px 0px 4px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    #todoBox{
+        box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    #boxSakusei{
+        box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+
+<!--class="p-3 font-bold text-xl border-1 border-solid rounded-md my-2 flex felx-row justify-center items-center shadow-md md:w-170 lg:w-170  2xl:h-30 2xl:w-300"-->

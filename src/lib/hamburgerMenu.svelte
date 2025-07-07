@@ -10,7 +10,7 @@
 </button>
 
 
-<div class="overflow-x-hidden">
+<div class="">
     <div class="fixed left-0 top-0 w-full bg-gray-200 z-30"  style="transform: translateX({Open ? '0' : '-120%'})">
         <div class="bg-gray-200 p-6 rounded-2xl absolute right-0 w-55 ">
             <button class="absolute top-2 right-4" on:click={() => Open = false}>
