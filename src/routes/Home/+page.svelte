@@ -114,7 +114,7 @@
 
 
 
-<main class="bg-linear-to-t from-gray-400 to-gray-300 h-screen">
+<main class="bg-linear-to-t from-gray-400 to-gray-300 h-max">
 
     <Header/>
 
@@ -162,6 +162,7 @@
 </main>
 
 <style>
+
     #box{
         box-shadow: 2px 0px 4px 0px rgba(0, 0, 0, 0.2);
     }
