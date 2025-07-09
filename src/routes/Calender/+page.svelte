@@ -1,5 +1,6 @@
 <script lang="ts">
     import Header from '$lib/header.svelte';
+    import { onMount } from 'svelte';
     
     $: defaultModal = false;
     let today = new Date();
@@ -8,7 +9,7 @@
     $: month = today.getMonth();
     $: day = today.getDate();
 
-    let scheduledDays: string[] = [];
+    let scheduledDays: { date: string; description: string }[] = [];
 
     let selectedDays: string[] = [];
     let formattedDate: string[] = [];
@@ -16,6 +17,28 @@
 
 
     const Youbi = ['日', '月', '火', '水', '木', '金', '土'];
+
+    function loadScheduledDays() {
+
+        const data = localStorage.getItem('scheduledDays');
+
+        if (data) {
+            scheduledDays = JSON.parse(data);
+        }
+
+    }
+
+    function saveScheduledDays() {
+
+        localStorage.setItem('scheduledDays', JSON.stringify(scheduledDays));
+
+    }
+
+    onMount(() => {
+        
+        loadScheduledDays();
+
+    });
 
     function getdaysArray(){
         const days = [];
@@ -77,25 +100,25 @@
 
     function datescedule(selectedDay : number){
 
-        if( selectedDays.includes(`${year}-${String(month + 1).padStart(2, '0')}-${String(selectedDay).padStart(2, '0')}`) ){
-            alert("この日の予定は、「" + DaydataAbout[selectedDays.indexOf(`${year}-${String(month + 1).padStart(2, '0')}-${String(selectedDay).padStart(2, '0')}`)] + "」です。");
-        }
-        else {
-        let dateData = window.prompt("予定を入力してください");
-        if (!dateData){
-            dateData = "予定（詳細なし）"
-        }
-        DaydataAbout.push(dateData);
-
         const formattedDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(selectedDay).padStart(2, '0')}`;
-        if (!selectedDays.includes(formattedDate)) {
-            selectedDays.push(formattedDate); // 選択された日にちを追加
-        }
-        console.log((month + 1 ) + "月" + selectedDay + "が選択されています。内容は、" + dateData + "です。");
-        }
 
-        selectedDays = [...selectedDays]
-        formattedDate = [...formattedDate];
+        // 既に予定がある場合は表示
+        const existingSchedule = scheduledDays.find((schedule) => schedule.date === formattedDate);
+        if (existingSchedule) {
+            alert(`この日の予定は、「${existingSchedule.description}」です。`);
+        } else {
+            // 新しい予定を入力
+            let dateData = window.prompt("予定を入力してください");
+            if (!dateData) {
+                dateData = "予定（詳細なし）";
+            }
+
+            // 予定を配列に追加
+            scheduledDays.push({ date: formattedDate, description: dateData });
+            saveScheduledDays(); // ローカルストレージに保存
+
+            console.log(`${month + 1}月${selectedDay}日が選択されています。内容は、${dateData}です。`);
+        }
 
     }
 
