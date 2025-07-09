@@ -18,13 +18,13 @@
                 <nav>
                     <ul class="">
                         <li class="flex justify-end-safe gap-20 w-full">
-                            <div class="transition hover:blur-xs">
+                            <div class="transition hover:bg-gray-300 rounded-full p-2">
                                 <a href="Home"><Home size="35"  /></a>
                             </div>
-                            <div class="transition hover:blur-xs">
+                            <div class="transition hover:bg-gray-300 rounded-full p-2">
                                 <a href="Calender"> <Calendar size="35" /></a>
                             </div>
-                            <div class="transition hover:blur-xs">
+                            <div class="transition hover:bg-gray-300 rounded-full p-2">
                                 <a href=""><CheckCircle size="35" /></a>
                             </div>
                             <div class="">
