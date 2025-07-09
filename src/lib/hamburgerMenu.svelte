@@ -17,12 +17,11 @@
                 <XMark class="w-8 h-8 text-gray-400" />
             </button>
 
-            <div class="top-3">
-                <ul class="text-left flex flex-col gap-10  divide-y divide-white">
-                    <li><a class="text-3xl" href="#">ナム</a></li>
-                    <li><a class="text-3xl" href="#">namu</a></li>
-                    <li><a class="text-3xl" href="#">namu</a></li>
-                    <li><a class="text-3xl" href="#">namu</a></li>
+            <div class="top-3 ">
+                <ul class="text-left flex flex-col gap-10 mt-10  divide-y divide-white">
+                    <li><a class="text-3xl mt-20" href="/home">Home</a></li>
+                    <li><a class="text-3xl" href="/Calender">Calender</a></li>
+                    <li><a class="text-3xl" href="/">todolist</a></li>
                 </ul>
             </div>
         </div>

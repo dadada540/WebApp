@@ -1,6 +1,5 @@
 <script lang="ts">
     import Header from '$lib/header.svelte';
-    import { Button, Modal, P } from "flowbite-svelte";
     
     $: defaultModal = false;
     let today = new Date();
