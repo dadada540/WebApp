@@ -14,7 +14,7 @@
 {#if Open}
 <div class="shadow-2xl">
     <div class="fixed left-0 top-0 w-full bg-gray-200 z-50 shadow-2xl"  transition:fly={{ x: 200, duration: 150 }}>
-        <div id="box" class="bg-gray-200 p-6 rounded-2xl absolute right-0 w-55">
+        <div id="box" class="bg-gray-200 p-6 rounded-2xl absolute right-0 w-55 h-screen">
             <button class="absolute top-2 right-4" on:click={() => Open = false}>
                 <XMark class="w-8 h-8" />
             </button>
@@ -23,7 +23,7 @@
                 <ul class="text-left flex flex-col gap-10 mt-10  divide-y divide-white">
                     <li><a class="text-3xl mt-20" href="/home">Home</a></li>
                     <li><a class="text-3xl" href="/Calender">Calender</a></li>
-                    <li><a class="text-3xl" href="/">ナムはすごいバカ</a></li>
+                    <li><a class="text-3xl" href="/">Todolist</a></li>
                 </ul>
             </div>
         </div>
